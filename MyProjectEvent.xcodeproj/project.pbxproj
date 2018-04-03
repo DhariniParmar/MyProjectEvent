@@ -15,6 +15,8 @@
 		3F93160F2073F7A0002B4CBE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F93160D2073F7A0002B4CBE /* LaunchScreen.storyboard */; };
 		3F93161A2073F7A0002B4CBE /* MyProjectEventTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9316192073F7A0002B4CBE /* MyProjectEventTests.swift */; };
 		3F9316252073F7A1002B4CBE /* MyProjectEventUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9316242073F7A1002B4CBE /* MyProjectEventUITests.swift */; };
+		3F9316332073FC25002B4CBE /* EventListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9316322073FC25002B4CBE /* EventListViewController.swift */; };
+		3F9316352073FC81002B4CBE /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9316342073FC81002B4CBE /* WelcomeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,8 @@
 		3F9316202073F7A0002B4CBE /* MyProjectEventUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyProjectEventUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F9316242073F7A1002B4CBE /* MyProjectEventUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProjectEventUITests.swift; sourceTree = "<group>"; };
 		3F9316262073F7A1002B4CBE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3F9316322073FC25002B4CBE /* EventListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventListViewController.swift; sourceTree = "<group>"; };
+		3F9316342073FC81002B4CBE /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +110,8 @@
 				3F93160D2073F7A0002B4CBE /* LaunchScreen.storyboard */,
 				3F9316102073F7A0002B4CBE /* Info.plist */,
 				3F9316082073F7A0002B4CBE /* MyProjectEvent.xcdatamodeld */,
+				3F9316322073FC25002B4CBE /* EventListViewController.swift */,
+				3F9316342073FC81002B4CBE /* WelcomeViewController.swift */,
 			);
 			path = MyProjectEvent;
 			sourceTree = "<group>";
@@ -263,6 +269,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				3F9316042073F7A0002B4CBE /* ViewController.swift in Sources */,
+				3F9316352073FC81002B4CBE /* WelcomeViewController.swift in Sources */,
+				3F9316332073FC25002B4CBE /* EventListViewController.swift in Sources */,
 				3F93160A2073F7A0002B4CBE /* MyProjectEvent.xcdatamodeld in Sources */,
 				3F9316022073F7A0002B4CBE /* AppDelegate.swift in Sources */,
 			);
