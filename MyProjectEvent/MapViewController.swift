@@ -11,6 +11,8 @@ import MapKit
 import CoreData
 
 class MapViewController: UIViewController {
+    
+   var managedObjectContext: NSManagedObjectContext!
 
     @IBOutlet weak var mapView: MKMapView!
     override func viewDidLoad() {

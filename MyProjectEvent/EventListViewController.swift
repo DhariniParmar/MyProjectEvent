@@ -12,7 +12,6 @@ import CoreData
 class EventListViewController: UITableViewController, addEventsVCDelegate {
     
      var events = [Event]()
-
      var managedObjectContext: NSManagedObjectContext!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,6 +65,7 @@ class EventListViewController: UITableViewController, addEventsVCDelegate {
 
         // Configure the cell...
          cell.textLabel?.text = events[indexPath.row].eventName
+    
         return cell
     }
     

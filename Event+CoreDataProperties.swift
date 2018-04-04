@@ -19,7 +19,7 @@ extension Event {
 
     @NSManaged public var eventName: String?
     @NSManaged public var eventLocation: String?
-    @NSManaged public var imageId: Int16
+    @NSManaged public var imageId: NSNumber?
     @NSManaged public var eventDiscription: String?
     @NSManaged public var longitude: Double
     @NSManaged public var latitude: Double

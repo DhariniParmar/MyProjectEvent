@@ -21,9 +21,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
 
         let navController = window!.rootViewController as! UINavigationController
+       //let navController = window!.rootViewController as! UINavigationController
         
-        
-            let controller = navController.viewControllers.first as! ViewController
+           let controller = navController.viewControllers.first as! EventListViewController
          controller.managedObjectContext = managedObjectContext
         
         let path = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
