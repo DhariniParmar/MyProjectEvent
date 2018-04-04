@@ -9,7 +9,9 @@
 import UIKit
 import CoreData
 
-class EventListViewController: UITableViewController {
+class EventListViewController: UITableViewController, addEventsVCDelegate {
+    
+     var events = [Event]()
 
      var managedObjectContext: NSManagedObjectContext!
     override func viewDidLoad() {
@@ -31,23 +33,42 @@ class EventListViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return events.count
     }
 
-    /*
+    func addEventsVCDidCancel() {
+        navigationController?.popViewController(animated: true)
+    }
+    
+    func addEventsVC(_ control: addEventsViewController, didFinishAdd itemEvent: Event) {
+        let selectRow = events.count
+        
+        events.append(itemEvent)
+        
+        let indexPath = IndexPath(row: selectRow, section: 0)
+        
+        tableView.insertRows(at: [indexPath], with: .automatic)
+        
+        navigationController?.popViewController(animated: true)
+    }
+    
+    func addEventsVC(_ control: addEventsViewController, didFinishEdit itemEvent: Event) {
+        
+    }
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
 
         // Configure the cell...
-
+         cell.textLabel?.text = events[indexPath.row].eventName
         return cell
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.
@@ -84,14 +105,26 @@ class EventListViewController: UITableViewController {
     }
     */
 
-    /*
+
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+       
+            let controller = segue.destination as! addEventsViewController
+            controller.managedObjectContext = managedObjectContext
+            controller.delegate = self
+        if segue.identifier == "EditEvent" {
+            let cell = sender as! UITableViewCell
+            if let indexPath = tableView.indexPath(for: cell){
+                let event = events[indexPath.row]
+                controller.event = event
+               //controller.editDept = true
+            }
+        }
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
     }
-    */
+    
 
 }

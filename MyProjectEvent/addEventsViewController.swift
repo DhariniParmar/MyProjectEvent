@@ -8,11 +8,19 @@
 
 import UIKit
 import CoreData
+import CoreLocation
 
-class addEventsViewController: UITableViewController {
+protocol addEventsVCDelegate: class {
+    
+    func addEventsVCDidCancel()
+    func addEventsVC(_ control: addEventsViewController, didFinishAdd itemEvent: Event)
+    func addEventsVC(_ control: addEventsViewController, didFinishEdit itemEvent: Event)
+}
+
+class addEventsViewController: UITableViewController, CLLocationManagerDelegate  {
     
     var managedObjectContext: NSManagedObjectContext!
-    
+    let locationManager = CLLocationManager()
     
     @IBOutlet weak var eventNameTextField: UITextField!
     
@@ -28,6 +36,9 @@ class addEventsViewController: UITableViewController {
     @IBOutlet weak var latitudeTextField: UITextField!
     @IBOutlet weak var longitudeTextField: UITextField!
     
+    weak var delegate: addEventsVCDelegate?
+    
+     var event:Event?
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -62,6 +73,25 @@ class addEventsViewController: UITableViewController {
         }
     }
 
+    
+    @IBAction func ForwardGeocodingToGPS(_ sender: Any) {
+        
+        let geocoder = CLGeocoder()
+        geocoder.geocodeAddressString((eventLocationTextField.text)!, completionHandler: {
+            placemarks, error in
+            print("Found the location: \(String(describing: placemarks))")
+            if let placemark = placemarks?.last {
+                if  let latitude = placemark.location?.coordinate.latitude,
+                    let longitude = placemark.location?.coordinate.longitude {
+                    self.latitudeTextField.text = "\(String(describing: latitude))"
+                    self.longitudeTextField.text = "\(String(describing: longitude))"
+                
+                   
+                }
+            }
+        })
+        
+    }
     /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
