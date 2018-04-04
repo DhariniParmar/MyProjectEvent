@@ -12,9 +12,9 @@ import CoreLocation
 
 protocol addEventsVCDelegate: class {
     
-    func addEventsVCDidCancel()
-    func addEventsVC(_ control: addEventsViewController, didFinishAdd itemEvent: Event)
-    func addEventsVC(_ control: addEventsViewController, didFinishEdit itemEvent: Event)
+    func EventsVCDidCancel()
+    func EventsVC(_ control: addEventsViewController, didFinishAdd event: Event)
+    func EventsVC(_ control: addEventsViewController, didFinishEdit  event: Event)
 }
 
 class addEventsViewController: UITableViewController, CLLocationManagerDelegate  {
@@ -74,7 +74,8 @@ class addEventsViewController: UITableViewController, CLLocationManagerDelegate 
     }
 
     
-    @IBAction func ForwardGeocodingToGPS(_ sender: Any) {
+    @IBAction func forwardGeoCodingToGPS(_ sender: Any) {
+        
         
         let geocoder = CLGeocoder()
         geocoder.geocodeAddressString((eventLocationTextField.text)!, completionHandler: {
@@ -85,12 +86,35 @@ class addEventsViewController: UITableViewController, CLLocationManagerDelegate 
                     let longitude = placemark.location?.coordinate.longitude {
                     self.latitudeTextField.text = "\(String(describing: latitude))"
                     self.longitudeTextField.text = "\(String(describing: longitude))"
-                
-                   
+                    
+                    
                 }
             }
         })
         
+        
+    }
+    
+    var editEvent : Bool = false
+    
+    @IBAction func done(_ sender: Any) {
+       
+        if !editEvent {
+            event = Event(context: managedObjectContext)
+        }
+        event!.eventName = eventNameTextField.text
+        event!.eventLocation = eventLocationTextField.text
+        do {
+            try managedObjectContext.save()
+        } catch {
+            print("Core Data Error")
+        }
+        if editEvent {
+            delegate?.EventsVC(self, didFinishEdit : event!)
+        } else {
+            delegate?.EventsVC(self, didFinishAdd : event!)
+        }
+        navigationController?.popViewController(animated: true)
     }
     /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

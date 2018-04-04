@@ -41,14 +41,14 @@ class EventListViewController: UITableViewController, addEventsVCDelegate {
         return events.count
     }
 
-    func addEventsVCDidCancel() {
+    func EventsVCDidCancel() {
         navigationController?.popViewController(animated: true)
     }
     
-    func addEventsVC(_ control: addEventsViewController, didFinishAdd itemEvent: Event) {
+    func EventsVC(_ control: addEventsViewController, didFinishAdd event: Event) {
         let selectRow = events.count
         
-        events.append(itemEvent)
+        events.append(event)
         
         let indexPath = IndexPath(row: selectRow, section: 0)
         
@@ -57,7 +57,7 @@ class EventListViewController: UITableViewController, addEventsVCDelegate {
         navigationController?.popViewController(animated: true)
     }
     
-    func addEventsVC(_ control: addEventsViewController, didFinishEdit itemEvent: Event) {
+    func EventsVC(_ control: addEventsViewController, didFinishEdit event: Event) {
         
     }
     

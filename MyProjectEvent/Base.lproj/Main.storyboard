@@ -60,7 +60,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="detailDisclosureButton" indentationWidth="10" id="o6p-OS-rDM">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="detailDisclosureButton" indentationWidth="10" reuseIdentifier="Cell" id="o6p-OS-rDM">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" semanticContentAttribute="playback" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="o6p-OS-rDM" id="eIq-lN-c29">
@@ -98,7 +98,7 @@
             </objects>
             <point key="canvasLocation" x="943.20000000000005" y="116.49175412293854"/>
         </scene>
-        <!--ADD EVENT-->
+        <!--ADD EVENT DESCRIPTION-->
         <scene sceneID="Sq0-dV-Bgi">
             <objects>
                 <tableViewController id="AC9-jd-Wnb" customClass="addEventsViewController" customModule="MyProjectEvent" customModuleProvider="target" sceneMemberID="viewController">
@@ -303,7 +303,11 @@
                         </connections>
                     </tableView>
                     <toolbarItems>
-                        <barButtonItem title="ToGPS" id="gZG-wh-Miz"/>
+                        <barButtonItem title="ToGPS" id="gZG-wh-Miz">
+                            <connections>
+                                <action selector="forwardGeoCodingToGPS:" destination="AC9-jd-Wnb" id="bMe-HQ-Obw"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="Bfe-zb-Mgk"/>
                         <barButtonItem title="MAP" width="75" id="0Tu-tH-BC2">
                             <connections>
@@ -314,9 +318,13 @@
                         <barButtonItem title="Tag Location" id="inF-zg-TAy"/>
                         <barButtonItem id="kTT-0U-OA7"/>
                     </toolbarItems>
-                    <navigationItem key="navigationItem" title="ADD EVENT" id="qhF-Pe-3M2">
+                    <navigationItem key="navigationItem" title="ADD EVENT DESCRIPTION" id="qhF-Pe-3M2">
                         <barButtonItem key="leftBarButtonItem" title="Cancel" id="cGN-nC-D37"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="vQa-SD-2tC"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="vQa-SD-2tC">
+                            <connections>
+                                <action selector="done:" destination="AC9-jd-Wnb" id="Gwv-JJ-wnT"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
