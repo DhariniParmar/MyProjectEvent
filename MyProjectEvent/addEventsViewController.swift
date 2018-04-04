@@ -7,9 +7,27 @@
 //
 
 import UIKit
+import CoreData
 
 class addEventsViewController: UITableViewController {
-
+    
+    var managedObjectContext: NSManagedObjectContext!
+    
+    
+    @IBOutlet weak var eventNameTextField: UITextField!
+    
+    
+    @IBOutlet weak var eventLocationTextField: UITextField!
+    
+    
+    @IBOutlet weak var descriptionTextView: UITextView!
+    
+    @IBOutlet weak var CategoryLabel: UILabel!
+    
+    
+    @IBOutlet weak var latitudeTextField: UITextField!
+    @IBOutlet weak var longitudeTextField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -29,12 +47,19 @@ class addEventsViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return 8
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "SelectCategory" {
+            let controller = segue.destination as! CategorySelectViewController
+            controller.selectedCategory = CategoryLabel.text!
+        }
     }
 
     /*

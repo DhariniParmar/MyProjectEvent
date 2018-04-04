@@ -17,6 +17,11 @@
 		3F9316252073F7A1002B4CBE /* MyProjectEventUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9316242073F7A1002B4CBE /* MyProjectEventUITests.swift */; };
 		3F9316332073FC25002B4CBE /* EventListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9316322073FC25002B4CBE /* EventListViewController.swift */; };
 		3F9316352073FC81002B4CBE /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9316342073FC81002B4CBE /* WelcomeViewController.swift */; };
+		3F93163720741A6D002B4CBE /* addEventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F93163620741A6D002B4CBE /* addEventsViewController.swift */; };
+		3F9316392074226E002B4CBE /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9316382074226E002B4CBE /* MapViewController.swift */; };
+		3F93163B207425F2002B4CBE /* CategorySelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F93163A207425F2002B4CBE /* CategorySelectViewController.swift */; };
+		3F931642207439A1002B4CBE /* Event+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F931640207439A1002B4CBE /* Event+CoreDataClass.swift */; };
+		3F931643207439A1002B4CBE /* Event+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F931641207439A1002B4CBE /* Event+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +58,11 @@
 		3F9316262073F7A1002B4CBE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3F9316322073FC25002B4CBE /* EventListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventListViewController.swift; sourceTree = "<group>"; };
 		3F9316342073FC81002B4CBE /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		3F93163620741A6D002B4CBE /* addEventsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addEventsViewController.swift; sourceTree = "<group>"; };
+		3F9316382074226E002B4CBE /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		3F93163A207425F2002B4CBE /* CategorySelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorySelectViewController.swift; sourceTree = "<group>"; };
+		3F931640207439A1002B4CBE /* Event+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Event+CoreDataClass.swift"; sourceTree = "<group>"; };
+		3F931641207439A1002B4CBE /* Event+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Event+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +93,8 @@
 		3F9315F52073F7A0002B4CBE = {
 			isa = PBXGroup;
 			children = (
+				3F931640207439A1002B4CBE /* Event+CoreDataClass.swift */,
+				3F931641207439A1002B4CBE /* Event+CoreDataProperties.swift */,
 				3F9316002073F7A0002B4CBE /* MyProjectEvent */,
 				3F9316182073F7A0002B4CBE /* MyProjectEventTests */,
 				3F9316232073F7A1002B4CBE /* MyProjectEventUITests */,
@@ -112,6 +124,9 @@
 				3F9316082073F7A0002B4CBE /* MyProjectEvent.xcdatamodeld */,
 				3F9316322073FC25002B4CBE /* EventListViewController.swift */,
 				3F9316342073FC81002B4CBE /* WelcomeViewController.swift */,
+				3F93163620741A6D002B4CBE /* addEventsViewController.swift */,
+				3F9316382074226E002B4CBE /* MapViewController.swift */,
+				3F93163A207425F2002B4CBE /* CategorySelectViewController.swift */,
 			);
 			path = MyProjectEvent;
 			sourceTree = "<group>";
@@ -268,11 +283,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F931643207439A1002B4CBE /* Event+CoreDataProperties.swift in Sources */,
 				3F9316042073F7A0002B4CBE /* ViewController.swift in Sources */,
 				3F9316352073FC81002B4CBE /* WelcomeViewController.swift in Sources */,
+				3F93163B207425F2002B4CBE /* CategorySelectViewController.swift in Sources */,
 				3F9316332073FC25002B4CBE /* EventListViewController.swift in Sources */,
+				3F931642207439A1002B4CBE /* Event+CoreDataClass.swift in Sources */,
+				3F93163720741A6D002B4CBE /* addEventsViewController.swift in Sources */,
 				3F93160A2073F7A0002B4CBE /* MyProjectEvent.xcdatamodeld in Sources */,
 				3F9316022073F7A0002B4CBE /* AppDelegate.swift in Sources */,
+				3F9316392074226E002B4CBE /* MapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

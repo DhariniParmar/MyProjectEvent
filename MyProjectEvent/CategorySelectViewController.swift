@@ -7,11 +7,35 @@
 //
 
 import UIKit
+import CoreData
 
 class CategorySelectViewController: UITableViewController {
-
+    
+    
+    var selectedCategory = ""
+    
+    let categories = [
+        "No Category",
+        "Birthday",
+        "Meeting",
+        "Marriage",
+        "Festival",
+        "Party",
+        "Travel",
+        "Exams",
+        "Work",
+        "Occation"]
+    
+    var selectedIndexPath = IndexPath()
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        for i in 0..<categories.count {
+            if categories[i] == selectedCategory{
+                selectedIndexPath = IndexPath(row: i, section: 0)
+                break
+            }
+        }
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -34,18 +58,26 @@ class CategorySelectViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return categories.count
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CellTwo", for: indexPath)
 
         // Configure the cell...
-
+        let categoryName = categories[indexPath.row]
+        cell.textLabel!.text = categoryName
+        
+        if categoryName == selectedCategory{
+            cell.accessoryType = .checkmark
+        } else {
+            cell.accessoryType = .none
+        }
         return cell
+
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.
@@ -82,14 +114,33 @@ class CategorySelectViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        
+        if segue.identifier == "SelectCategory" {
+            let cell = sender as! UITableViewCell
+            if let indexPath = tableView.indexPath(for: cell) {
+                selectedCategory = categories[indexPath.row]
+            }
+        }
     }
-    */
+
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.row != selectedIndexPath.row {
+            if let CellOne = tableView.cellForRow(at: indexPath) {
+                CellOne.accessoryType = .checkmark
+            }
+            if let CellTwo = tableView.cellForRow(
+                at: selectedIndexPath) {
+                CellTwo.accessoryType = .none
+            }
+            selectedIndexPath = indexPath
+        }
+    }
 
 }

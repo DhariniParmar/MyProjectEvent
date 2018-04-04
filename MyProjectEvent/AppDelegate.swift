@@ -13,10 +13,24 @@ import CoreData
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    
+    
+   
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+
+        let navController = window!.rootViewController as! UINavigationController
+        
+        
+            let controller = navController.viewControllers.first as! ViewController
+         controller.managedObjectContext = managedObjectContext
+        
+        let path = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        print(path)
+        
+      //  listenForFatalCoreDataNotifications()
+       
         return true
     }
 
@@ -46,7 +60,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     // MARK: - Core Data stack
 
-    lazy var persistentContainer: NSPersistentContainer = {
+lazy var managedObjectContext: NSManagedObjectContext =
+    self.persistentContainer.viewContext
+
+ lazy var persistentContainer: NSPersistentContainer = {
         /*
          The persistent container for the application. This implementation
          creates and returns a container, having loaded the store for the
@@ -89,5 +106,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
 
+
 }
+
+
 
